@@ -1,3 +1,5 @@
+// 사용한 함수 참고 : https://doc-api.photonengine.com/en/fusion/current/interface_fusion_1_1_i_network_runner_callbacks.html
+
 using Fusion;
 using Fusion.Sockets;
 using System;
@@ -37,6 +39,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         }
     }
 
+    // NetworkRunner가 연결됨
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player) 
     {
         if (runner.IsServer)
@@ -48,7 +51,8 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             _spawnedCharacters.Add(player, networkPlayerObject);
         }
     }
-    
+
+    // NetworkRunner의 연결이 끊김
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player) 
     {
         // Find and remove the players avatar
@@ -59,6 +63,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         }
     }
 
+    // NetworkRunner의 사용자 입력을 인식함
     public void OnInput(NetworkRunner runner, NetworkInput input) 
     {
         var data = new NetworkInputData();
@@ -86,19 +91,41 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         input.Set(data);
     }
 
+    // NetworkRunner의 사용자 입력을 잃음
     public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { Debug.Log("OnInputMissing()" ); }
-    public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { }
-    public void OnConnectedToServer(NetworkRunner runner) { }
-    public void OnDisconnectedFromServer(NetworkRunner runner) { }
-    public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token) { }
-    public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason) { }
-    public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message) { }
-    public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) { }
-    public void OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data) { }
-    public void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken) { }
-    public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ArraySegment<byte> data) { }
-    public void OnSceneLoadDone(NetworkRunner runner) { }
-    public void OnSceneLoadStart(NetworkRunner runner) { }
+    
+    // NetworkRunner가 셧다운됨
+    public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { Debug.Log("OnShutdown()"); }
+    
+    // NetworkRunner가 서버나 호스트에 연결성공
+    public void OnConnectedToServer(NetworkRunner runner) { Debug.Log("OnConnectedToServer()"); }
+
+    // NetworkRunner가 서버나 호스트에서 연결을 끊음
+    public void OnDisconnectedFromServer(NetworkRunner runner) { Debug.Log("OnDisconnectedFromServer()"); }
+
+    // NetworkRunner가 리모트 클라이언트로부터 요청을 받음
+    public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token) { Debug.Log("OnConnectRequest()"); }
+
+    // NetworkRunner가 서버나 호스트에 연결실패
+    public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason) { Debug.Log("OnConnectFailed()"); }
+
+    // 리모트 클라이언트로부터 수동으로 전달된 메시지가 수신됨
+    public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message) { Debug.Log("OnUserSimulationMessage()"); }
+
+    // 세션이 업데이트됨
+    public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) { Debug.Log("OnSessionListUpdated()"); }
+
+    // 인증 절차가 인증 서버에서 응답을 반환
+    public void OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data) { Debug.Log("OnCustomAuthenticationResponse()"); }
+
+    // 호스트 마이그레이션 프로세스가 시작
+    public void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken) { Debug.Log("OnHostMigration()"); }
+
+    public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ArraySegment<byte> data) { Debug.Log("OnReliableDataReceived()"); }
+
+    public void OnSceneLoadDone(NetworkRunner runner) { Debug.Log("OnSceneLoadDone()"); }
+
+    public void OnSceneLoadStart(NetworkRunner runner) { Debug.Log("OnSceneLoadStart()"); }
 
     async void StartGame(GameMode mode)
     {

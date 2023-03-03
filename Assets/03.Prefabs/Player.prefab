@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 1714588218938789968}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,3 +323,4 @@ MonoBehaviour:
   _prefabPhysxBall: {fileID: 5302223148518178090, guid: 71df61db8c87b5947861ebe191daf0be, type: 3}
   _spawned:
     _value: 0
+  equipPoint: {x: 0, y: 0, z: 0}

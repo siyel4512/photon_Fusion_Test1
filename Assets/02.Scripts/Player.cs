@@ -124,5 +124,10 @@ public class Player : NetworkBehaviour
         material.color = Color.Lerp(material.color, Color.blue, Time.deltaTime);
     }
 
-   
+    public Vector3 equipPoint;
+
+    private void EquipTool()
+    {
+
+    }
 }

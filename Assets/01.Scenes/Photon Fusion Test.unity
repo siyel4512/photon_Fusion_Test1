@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 100653450}
   - component: {fileID: 100653449}
   - component: {fileID: 100653447}
+  - component: {fileID: 100653448}
   m_Layer: 0
   m_Name: Windmill_2
   m_TagString: Untagged
@@ -249,6 +250,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d199e6e933112647abaa94be9a0e7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+--- !u!114 &100653448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100653446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 10ae94c9f5034964be5c559cd909cfca
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 100653450}
+  - {fileID: 100653447}
+  SimulationBehaviours: []
 --- !u!95 &100653449
 Animator:
   serializedVersion: 3

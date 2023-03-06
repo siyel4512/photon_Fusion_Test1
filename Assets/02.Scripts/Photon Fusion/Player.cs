@@ -23,13 +23,13 @@ public class Player : NetworkBehaviour
         _forward = transform.forward;
     }
 
-    private void Update()
-    {
-        if (Object.HasInputAuthority && Input.GetKeyDown(KeyCode.R))
-        {
-            RPC_SendMessage("Hello World!!!");
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Object.HasInputAuthority && Input.GetKeyDown(KeyCode.R))
+    //    {
+    //        RPC_SendMessage("Hello World!!!");
+    //    }
+    //}
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
     public void RPC_SendMessage(string message, RpcInfo info = default)

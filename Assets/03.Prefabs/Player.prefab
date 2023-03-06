@@ -95,6 +95,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1568200612702463906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8561384125849022237}
+  m_Layer: 0
+  m_Name: Equip Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8561384125849022237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568200612702463906}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 875425636689169388}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1928801293250357168
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +139,7 @@ GameObject:
   - component: {fileID: 1609972011717679759}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5523821026152172153}
+  - {fileID: 8561384125849022237}
   m_Father: {fileID: 3791625816015264171}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -204,7 +235,7 @@ GameObject:
   - component: {fileID: 3791625816015264166}
   - component: {fileID: 3791625816015264169}
   - component: {fileID: 3791625816015264168}
-  - component: {fileID: 1714588218938789968}
+  - component: {fileID: 8441388221501084700}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -250,7 +281,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 3791625816015264168}
-  - {fileID: 1714588218938789968}
+  - {fileID: 8441388221501084700}
   SimulationBehaviours: []
 --- !u!143 &3791625816015264169
 CharacterController:
@@ -267,7 +298,7 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3791625816015264168
@@ -306,7 +337,7 @@ MonoBehaviour:
   rotationSpeed: 15
   _IsGrounded: 0
   _Velocity: {x: 0, y: 0, z: 0}
---- !u!114 &1714588218938789968
+--- !u!114 &8441388221501084700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -323,4 +354,4 @@ MonoBehaviour:
   _prefabPhysxBall: {fileID: 5302223148518178090, guid: 71df61db8c87b5947861ebe191daf0be, type: 3}
   _spawned:
     _value: 0
-  equipPoint: {x: 0, y: 0, z: 0}
+  equipPoint: {fileID: 8561384125849022237}

@@ -8,7 +8,6 @@ public class Windmill2 : NetworkBehaviour
     private Animator anim;
     private int start_id;
     private bool isPlaying = false;
-    [Networked] public bool S { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -25,20 +24,24 @@ public class Windmill2 : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (isPlaying)
-            {
-                isPlaying = false;
-                print("애니메이션 중지");
-                //anim.SetBool(start_id, isPlaying);
-                anim.speed = 0f;
-            }
-            else
-            {
-                isPlaying = true;
-                print("애니메이션 재생");
-                //anim.SetBool(start_id, isPlaying);
-                anim.speed = 1f;
-            }
+            RPC_PlayAnimaion();
+        }
+    }
+
+    [Rpc]
+    public void RPC_PlayAnimaion()
+    {
+        // pause animation
+        if (isPlaying)
+        {
+            isPlaying = false;
+            anim.speed = 0f;
+        }
+        // play animation
+        else
+        {
+            isPlaying = true;
+            anim.speed = 1f;
         }
     }
 }
